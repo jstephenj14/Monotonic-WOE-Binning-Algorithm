@@ -25,58 +25,6 @@ sample = credit[["goodbad","age"]]
 
 y_ = ir.fit_transform(sample["age"], sample["goodbad"])
 
-
-#Create bins for age
-bins = [0,24,36,100]
-sample["bins"] = pd.cut(sample["age"],bins)
-
-sample.groupby(["bins"]).agg({"goodbad":{"total_bads":"sum",
-                                         "total_loans":"size"}})
-Y = sample.goodbad
-X = sample.age
-
-X2 = X.fillna(np.median(X))
-n = 20
-
-r = 0
-while np.abs(r) < 1:
-    d1 = pd.DataFrame({"X": X2, "Y": Y, "Bucket": pd.qcut(X2, n)})
-    d2 = d1.groupby('Bucket', as_index = True)
-    r, p = stats.spearmanr(d2.mean().X, d2.mean().Y)
-    n = n - 1
-    print r,p,n
-
-n=3 
-d1 = pd.DataFrame({"X": X2, "Y": Y, "Bucket": pd.qcut(X2, n)})
-d2 = d1.groupby('Bucket', as_index = True)
-print d2.mean().X
-print d2.mean().Y
-print stats.spearmanr(d2.mean().X, d2.mean().Y)
-
-r, p = stats.spearmanr(d2.mean().X, d2.mean().Y)
-
-global d4
-def mono_bin(Y, X, n = 20):
-  # fill missings with median
-  X2 = X.fillna(np.median(X))
-  r = 0
-  while np.abs(r) < 1:
-    d1 = pd.DataFrame({"X": X2, "Y": Y, "Bucket": pd.qcut(X2, n)})
-    d2 = d1.groupby('Bucket', as_index = True)
-    r, p = stats.spearmanr(d2.mean().X, d2.mean().Y)
-    n = n - 1
-    print r,p,n
-  d3 = pd.DataFrame(d2.min().X, columns = ['min_' + X.name])
-  d3['max_' + X.name] = d2.max().X
-  d3[Y.name] = d2.sum().Y
-  d3['total'] = d2.count().Y
-  d3[Y.name + '_rate'] = d2.mean().Y
-  d4 = (d3.sort_index(by = 'min_' + X.name)).reset_index(drop = True)
-  print "=" * 60
-  print d4
-  
-mono_bin(credit.goodbad, credit.amount)
-
 summary = sample.groupby(["age"]).agg({"goodbad":{"means":"mean",
                                                   "nsamples":"size",
                                                   "std_dev":"std"}})
@@ -160,43 +108,62 @@ while True:
     if dels == 0:
         break
 #WHEW
-
-summary["means_lead"] = summary["means"].shift(-1)
-summary["nsamples_lead"] = summary["nsamples"].shift(-1)
-summary["std_dev_lead"] = summary["std_dev"].shift(-1)
-
-
-summary["est_nsamples"] =  summary["nsamples_lead"] +summary["nsamples"] 
-summary["est_means"] = (summary["means_lead"]*summary["nsamples_lead"] + 
-                        summary["means"]*summary["nsamples"])/summary["est_nsamples"]
-
-summary["est_std_dev2"] = (summary["nsamples_lead"]*summary["std_dev_lead"]**2 + 
-                          summary["nsamples"]*summary["std_dev"]**2)/(summary["est_nsamples"]-2)
- 
-summary["z_value"] =  (summary["means"] - summary["means_lead"])/np.sqrt(summary["est_std_dev2"]*(1/summary["nsamples"] + 1/summary["nsamples_lead"]))
-
-summary["p_value"] = 1 - norm.cdf(summary["z_value"])
-
+        
+summary = summary1
 n_threshold = 100
 defaults_threshold = 30
 p_threshold = 0.05
+while True:
+    summary["means_lead"] = summary["means"].shift(-1)
+    summary["nsamples_lead"] = summary["nsamples"].shift(-1)
+    summary["std_dev_lead"] = summary["std_dev"].shift(-1)
+    
+    
+    summary["est_nsamples"] =  summary["nsamples_lead"] +summary["nsamples"] 
+    summary["est_means"] = (summary["means_lead"]*summary["nsamples_lead"] + 
+                            summary["means"]*summary["nsamples"])/summary["est_nsamples"]
+    
+    summary["est_std_dev2"] = (summary["nsamples_lead"]*summary["std_dev_lead"]**2 + 
+                              summary["nsamples"]*summary["std_dev"]**2)/(summary["est_nsamples"]-2)
+     
+    summary["z_value"] =  (summary["means"] - summary["means_lead"])/np.sqrt(summary["est_std_dev2"]*(1/summary["nsamples"] + 1/summary["nsamples_lead"]))
+    
+    summary["p_value"] = 1 - norm.cdf(summary["z_value"])
+    
+    condition = (summary["nsamples"]<n_threshold)|(summary["nsamples_lead"]<n_threshold)|(summary["means"]*summary["nsamples"]<defaults_threshold)|(summary["means_lead"]*summary["nsamples_lead"]<defaults_threshold)
+            
+    summary[condition].p_value = summary[condition].p_value + 1
+    
+    summary["p_value"] = summary.apply(lambda row: row["p_value"] + 1 if (row["nsamples"]<n_threshold)|(row["nsamples_lead"]<n_threshold)|(row["means"]*row["nsamples"]<defaults_threshold)|(row["means_lead"]*row["nsamples_lead"]<defaults_threshold)
+             else row["p_value"], axis = 1 )
+  
+    max_p = max(summary["p_value"])   
+    row_of_maxp = summary['p_value'].idxmax()
+    row_delete = row_of_maxp + 1
+    
+    if max_p>p_threshold:
+        summary = summary.drop(summary.index[row_delete])
+        summary = summary.reset_index(drop=True)
+    else:
+        break
+    
+    summary["means"] = summary.apply(lambda row: row["est_means"] if row["p_value"] == max_p else row["means"], axis = 1 )
+    summary["nsamples"] = summary.apply(lambda row: row["est_nsamples"] if row["p_value"] == max_p else row["nsamples"], axis = 1 )
+    summary["std_dev"] = summary.apply(lambda row: np.sqrt(row["est_std_dev2"]) if row["p_value"] == max_p else row["std_dev"], axis = 1 )
+    
+WOE_summary = summary[["age","nsamples","means"]]
 
-condition = (summary["nsamples"]<n_threshold)|(summary["nsamples_lead"]<n_threshold)|(summary["means"]*summary["nsamples"]<defaults_threshold)|(summary["means_lead"]*summary["nsamples_lead"]<defaults_threshold)
-        
-summary[condition].p_value = summary[condition].p_value + 1
+WOE_summary["bads"] = WOE_summary["means"]*WOE_summary["nsamples"]
+WOE_summary["goods"] = WOE_summary["nsamples"] - WOE_summary["bads"]
 
-summary["p_value"] = summary.apply(lambda row: row["p_value"] + 1 if (row["nsamples"]<n_threshold)|(row["nsamples_lead"]<n_threshold)|(row["means"]*row["nsamples"]<defaults_threshold)|(row["means_lead"]*row["nsamples_lead"]<defaults_threshold)
-         else row["p_value"], axis = 1 )
+TotalGoods = np.sum(WOE_summary["goods"])
+TotalBads = np.sum(WOE_summary["bads"])
 
-max_p = max(summary["p_value"])   
-row_of_maxp = summary['p_value'].idxmax()
-row_delete = row_of_maxp + 1
+WOE_summary["dist_good"] = WOE_summary["goods"]/TotalGoods
+WOE_summary["dist_bad"]  = WOE_summary["bads"]/TotalBads
 
-summary["means"] = summary.apply(lambda row: row["est_means"] if row["p_value"] == max_p else row["means"], axis = 1 )
-summary["nsamples"] = summary.apply(lambda row: row["est_nsamples"] if row["p_value"] == max_p else row["nsamples"], axis = 1 )
-summary["std_dev"] = summary.apply(lambda row: np.sqrt(row["est_std_dev2"]) if row["p_value"] == max_p else row["std_dev"], axis = 1 )
+WOE_summary["WOE"] = np.log(WOE_summary["dist_good"] / WOE_summary["dist_bad"]) 
 
-summary = summary.drop(summary.index[row_delete])
-summary = summary.reset_index(drop=True)
+WOE_summary["IV_components"] = (WOE_summary["dist_good"] - WOE_summary["dist_bad"])*WOE_summary["WOE"] 
 
-
+Total_IV = np.sum(WOE_summary["IV_components"])
