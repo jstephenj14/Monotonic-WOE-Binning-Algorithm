@@ -1,19 +1,7 @@
-# -*- coding: utf-8 -*-
-"""
-Spyder Editor
-
-This is a temporary script file.
-"""
-
 import os
 import numpy as np
 import pandas as pd
 import scipy.stats.stats as stats
-
-from sklearn.utils import check_random_state
-from scipy.stats import norm
-
-ir = IsotonicRegression()
 
 os.getcwd()
 
@@ -22,8 +10,6 @@ os.chdir('C:\\Users\\jstep\\Downloads\\Credit Risk Analytics Pack\\Probablity of
 credit = pd.read_excel("PD.xls")
 
 sample = credit[["goodbad","age"]]
-
-y_ = ir.fit_transform(sample["age"], sample["goodbad"])
 
 summary = sample.groupby(["age"]).agg({"goodbad":{"means":"mean",
                                                   "nsamples":"size",
@@ -36,14 +22,6 @@ summary = summary.reset_index()
 
 summary["del_flag"] = 0
 summary["std_dev"] = summary["std_dev"].fillna(0)
-
-#summary.loc[1,"del_flag"] = 1
-
-#summary = summary[summary.del_flag != 1]
-#summary = summary.reset_index(drop=True)
-    
-    
-#for i in range(len(summary)):   
 
 while True:
     i = 0
@@ -108,8 +86,7 @@ while True:
     if dels == 0:
         break
 #WHEW
-        
-summary = summary1
+
 n_threshold = 100
 defaults_threshold = 30
 p_threshold = 0.05
@@ -167,3 +144,17 @@ WOE_summary["WOE"] = np.log(WOE_summary["dist_good"] / WOE_summary["dist_bad"])
 WOE_summary["IV_components"] = (WOE_summary["dist_good"] - WOE_summary["dist_bad"])*WOE_summary["WOE"] 
 
 Total_IV = np.sum(WOE_summary["IV_components"])
+
+bins=[-np.inf,19,26,35,np.inf]
+
+bins1=["-inf","19.0","26.0","35.0","inf"]
+
+labels = [", ".join(bins1[i:i+2]) for i in range(len(bins1))][1:-1]
+
+WOE_summary["labels"] = labels
+
+sample["bins"] =  pd.cut(sample["age"],bins,right=False)
+sample["bins"] = sample["bins"].astype(str)
+sample['bins'] = sample['bins'].map(lambda x: x.lstrip('[').rstrip(')'))
+
+final_table = sample.set_index("bins").join(WOE_summary[["WOE","labels"]].set_index("labels"))
