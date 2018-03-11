@@ -6,7 +6,7 @@ The weight-of-evidence (WOE) method of evaluating strength of predictors is an u
 While it is standard fare in credit risk modelling, it is under-utilized in other settings though its formulation makes it
 generic enough for use in other domains too. The WOE method primarily aims to bin variables into buckets that deliver the most
 information to a potential classification model. Quite often, WOE binning methods measure effectiveness of such bins using Information Value
-of IV. For a more detailed introduction to WOE and IV, [this article](http://ucanalytics.com/blogs/information-value-and-weight-of-evidencebanking-case/)
+or IV. For a more detailed introduction to WOE and IV, [this article](http://ucanalytics.com/blogs/information-value-and-weight-of-evidencebanking-case/)
 is a useful read. 
 
 In the world of credit risk modelling, regulatory oversight often requires that the variables that go into models
