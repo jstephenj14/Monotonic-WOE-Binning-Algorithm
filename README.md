@@ -21,7 +21,7 @@ The following is a possible scenario in which the variable is binned into three 
 as the ages of customers increase. 
 
 [![WOE_Table.png](
-https://drive.google.com/file/d/10NHDsJQbZRgO3QQGK2dMkoAmzJxtQR_A/view)](https://postimg.org/image/xf3stvl6z/)
+https://drive.google.com/file/d/10NHDsJQbZRgO3QQGK2dMkoAmzJxtQR_A/view)](https://drive.google.com/file/d/10NHDsJQbZRgO3QQGK2dMkoAmzJxtQR_A/view)
 
 The WOE is derived in such a manner that as the WOE value increases, the default rate decreases. So we can infer 
 that younger customers are more likely to default in comparison to older customers.
