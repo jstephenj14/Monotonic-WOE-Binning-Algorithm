@@ -34,4 +34,4 @@ number of defaults in each bin and the maximum p-value allowed for a possible t-
 
 I hope my attempt here serves as a helpful stop-gap for someone looking to perform risk modelling in Python using WOE methods.
 
-<a href="https://drive.google.com/uc?export=view&id=1Kg2phFpFVcjYamhrbUZ5rnCp78nVHhPX"><img src="https://drive.google.com/uc?export=view&id=1Kg2phFpFVcjYamhrbUZ5rnCp78nVHhPX" style="width: 500px; max-width: 100%; height: auto" title="Click for the larger version." /></a>
+<a href="https://drive.google.com/uc?export=view&id=10NHDsJQbZRgO3QQGK2dMkoAmzJxtQR_A"><img src="https://drive.google.com/uc?export=view&id=10NHDsJQbZRgO3QQGK2dMkoAmzJxtQR_A" style="width: 500px; max-width: 100%; height: auto" title="Click for the larger version." /></a>
