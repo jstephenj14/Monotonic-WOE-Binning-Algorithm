@@ -20,7 +20,7 @@ To exemplify the constraints such a problem, consider a simple dataset containin
 The following is a possible scenario in which the variable is binned into three groups in such a manner that their WOE values decrease monotomically
 as the ages of customers increase. 
 
-![WOE_Table.png](https://i.imgur.com/U5wGxnO.png)
+<a href="https://drive.google.com/uc?export=view&id=10NHDsJQbZRgO3QQGK2dMkoAmzJxtQR_A"><img src="https://drive.google.com/uc?export=view&id=10NHDsJQbZRgO3QQGK2dMkoAmzJxtQR_A" style="width: 500px; max-width: 100%; height: auto" title="WOE Table" /></a>
 
 The WOE is derived in such a manner that as the WOE value increases, the default rate decreases. So we can infer 
 that younger customers are more likely to default in comparison to older customers.
@@ -34,4 +34,4 @@ number of defaults in each bin and the maximum p-value allowed for a possible t-
 
 I hope my attempt here serves as a helpful stop-gap for someone looking to perform risk modelling in Python using WOE methods.
 
-<a href="https://drive.google.com/uc?export=view&id=10NHDsJQbZRgO3QQGK2dMkoAmzJxtQR_A"><img src="https://drive.google.com/uc?export=view&id=10NHDsJQbZRgO3QQGK2dMkoAmzJxtQR_A" style="width: 500px; max-width: 100%; height: auto" title="Click for the larger version." /></a>
+
