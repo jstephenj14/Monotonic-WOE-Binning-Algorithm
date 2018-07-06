@@ -20,8 +20,7 @@ To exemplify the constraints such a problem, consider a simple dataset containin
 The following is a possible scenario in which the variable is binned into three groups in such a manner that their WOE values decrease monotomically
 as the ages of customers increase. 
 
-![WOE_Table.png](
-https://drive.google.com/file/d/10NHDsJQbZRgO3QQGK2dMkoAmzJxtQR_A/view?usp=sharing)
+![WOE_Table.png](https://drive.google.com/file/d/10NHDsJQbZRgO3QQGK2dMkoAmzJxtQR_A/view?usp=sharing)
 
 The WOE is derived in such a manner that as the WOE value increases, the default rate decreases. So we can infer 
 that younger customers are more likely to default in comparison to older customers.
