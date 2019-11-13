@@ -16,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Monotonic WOE Binning.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="311" column="90" selection-start-line="311" selection-start-column="84" selection-end-line="311" selection-end-column="90" />
+            <state relative-caret-position="268">
+              <caret line="343" lean-forward="true" selection-start-line="343" selection-end-line="343" />
               <folding>
                 <element signature="e#1#10#0" expanded="true" />
               </folding>
@@ -41,6 +41,7 @@
       <find>del_flag</find>
       <find>sign</find>
       <find>bucket</find>
+      <find>bins</find>
     </findStrings>
     <replaceStrings>
       <replace>Y_threshold</replace>
@@ -176,7 +177,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14853057" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -189,9 +189,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3294702" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.43046358" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.4290429" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="10" visible="true" weight="0.30033004" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.4570957" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -200,8 +200,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Monotonic WOE Binning.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="311" column="90" selection-start-line="311" selection-start-column="84" selection-end-line="311" selection-end-column="90" />
+        <state relative-caret-position="268">
+          <caret line="343" lean-forward="true" selection-start-line="343" selection-end-line="343" />
           <folding>
             <element signature="e#1#10#0" expanded="true" />
           </folding>

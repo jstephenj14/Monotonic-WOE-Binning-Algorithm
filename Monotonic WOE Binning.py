@@ -10,9 +10,6 @@ pd.set_option('display.width', desired_width)
 pd.set_option('display.max_columns', 130)
 warnings.filterwarnings("ignore")
 os.getcwd()
-os.chdir('C:\\Users\\jstep\\Downloads\\Credit Risk Analytics Pack\\Probablity of Default\\Supplements')
-credit = pd.read_excel("PD.xls")
-
 
 class Binning:
 
@@ -22,15 +19,17 @@ class Binning:
         self.p_threshold = p_threshold
         self.y = y
         self.dataset = dataset
-        self.column = self.dataset.columns[self.dataset.columns != Y][0]
+        self.column = self.dataset.columns[self.dataset.columns != self.y][0]
         self.sign = sign
 
         self.init_summary = pd.DataFrame()
         self.bin_summary = pd.DataFrame()
         self.pvalue_summary = pd.DataFrame()
+        self.final_table = pd.DataFrame()
 
         self.total_iv = object
         self.woe_summary = object
+        self.bins = object
 
     def generate_summary(self):
 
@@ -44,7 +43,7 @@ class Binning:
         self.init_summary["del_flag"] = 0
         self.init_summary["std_dev"] = self.init_summary["std_dev"].fillna(0)
 
-        self.init_summary = self.init_summary.sort_values([column], ascending=self.sign)
+        self.init_summary = self.init_summary.sort_values([self.column], ascending=self.sign)
 
     def combine_bins(self):
         summary = self.init_summary.copy()
@@ -162,7 +161,7 @@ class Binning:
     def generate_bin_labels(self,row):
         return "-".join(map(str, np.sort([row[self.column], row[self.column + "_shift"]])))
 
-    def final_dataset(self):
+    def generate_final_dataset(self):
         if self.sign == False:
             shift_var = 1
             bucket = True
@@ -170,30 +169,42 @@ class Binning:
             shift_var = -1
             bucket = False
 
-        self.woe_summary[self.column + "_shift"] = WOE_summary[self.column].shift(shift_var)
+        self.woe_summary[self.column + "_shift"] = self.woe_summary[self.column].shift(shift_var)
 
         if self.sign == False:
             self.woe_summary.loc[0, self.column + "_shift"] = -np.inf
-            bins = np.sort(list(self.woe_summary[self.column]) + [-np.Inf])
+            self.bins = np.sort(list(self.woe_summary[self.column]) + [-np.Inf])
         else:
             self.woe_summary.loc[len(self.woe_summary) - 1, self.column + "_shift"] = np.inf
-            bins = np.sort(list(self.woe_summary[self.column]) + [np.Inf])
+            self.bins = np.sort(list(self.woe_summary[self.column]) + [np.Inf])
 
-        self.woe_summary["labels"] = self.woe_summary.apply(dummy, axis=1)
+        self.woe_summary["labels"] = self.woe_summary.apply(self.generate_bin_labels, axis=1)
 
-        self.dataset["bins"] = pd.cut(self.dataset[self.column], bins, labels=self.woe_summary["labels"], right=bucket, precision=0)
+        self.dataset["bins"] = pd.cut(self.dataset[self.column], self.bins, labels=self.woe_summary["labels"], right=bucket, precision=0)
 
         self.dataset["bins"] = self.dataset["bins"].astype(str)
         self.dataset['bins'] = self.dataset['bins'].map(lambda x: x.lstrip('[').rstrip(')'))
 
-        self.final_table = self.dataset.set_index("bins").join(WOE_summary[["WOE_" + self.column, "labels"]].set_index("labels"))
+        self.final_table = self.dataset.set_index("bins").join(self.woe_summary[["WOE_" + self.column, "labels"]].set_index("labels"))
         self.final_table = self.final_table.reset_index().rename(index=str, columns={"index": self.column + "_buckets"})
 
-    def __call__(self, *args, **kwargs):
+    def __call__(self):
+        self.generate_summary()
+        self.combine_bins()
+        self.calculate_pvalues()
+        self.calculate_woe()
+        self.generate_final_dataset()
+
+        return self.dataset
 
 #duration_WOE = WOE_Binning("goodbad", credit[["goodbad", "duration"]], sign=False)
 #def WOE_Binning(Y, dataset, sign=False, n_threshold=100, Y_threshold=30, p_threshold=0.05):
 
+os.chdir('C:\\Users\\jstep\\Downloads\\Credit Risk Analytics Pack\\Probablity of Default\\Supplements')
+credit = pd.read_excel("PD.xls")
+
+bin_object = Binning("goodbad", credit[["goodbad", "duration"]],n_threshold = 100,y_threshold = 30,p_threshold = 0.05)
+final_data = bin_object()
 
 n_threshold = 100
 Y_threshold = 30
