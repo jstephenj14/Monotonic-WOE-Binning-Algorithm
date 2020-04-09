@@ -70,8 +70,8 @@ class Binning:
                         if n == 2:
                             s = np.std([summary.iloc[j].means, summary.iloc[i].means])
                         else:
-                            s = np.sqrt((summary.iloc[j].nsamples * ((summary.iloc[j].std_dev) ** 2) +
-                                         summary.iloc[i].nsamples * ((summary.iloc[i].std_dev) ** 2)) / n)
+                            s = np.sqrt((summary.iloc[j].nsamples * (summary.iloc[j].std_dev ** 2) +
+                                         summary.iloc[i].nsamples * (summary.iloc[i].std_dev ** 2)) / n)
 
                         summary.loc[i, "nsamples"] = n
                         summary.loc[i, "means"] = m
