@@ -17,9 +17,9 @@ train = pd.read_csv("Training50.csv")
 test = pd.read_csv("Test50.csv")
 
 var = "Age..years."
-bin_object = Binning("Creditability", n_threshold = 100, y_threshold = 10, p_threshold = 0.05, sign=False)
+bin_object = Binning("Creditability", n_threshold = 50, y_threshold = 10, p_threshold = 0.35, sign=False)
 bin_object.fit(train[["Creditability", var]])
-
+bin_object.woe_summary
 # train.groupby([var]).size()
 
 test_transformed = bin_object.transform(test)
