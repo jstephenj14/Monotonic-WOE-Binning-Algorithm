@@ -1,4 +1,4 @@
-from monotonic_woe_binning import Binning
+from monotonic_binning.monotonic_woe_binning import Binning
 import os
 import pandas as pd
 

@@ -12,7 +12,6 @@ pd.set_option('display.max_columns', 130)
 warnings.filterwarnings("ignore")
 os.getcwd()
 
-
 class Binning(BaseEstimator, TransformerMixin):
 
     def __init__(self, y, n_threshold, y_threshold, p_threshold, sign=False):
