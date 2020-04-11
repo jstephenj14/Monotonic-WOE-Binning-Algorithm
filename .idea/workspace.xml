@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b98a1d66-19ea-4077-baaf-79c9e4309371" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monotonic WOE Binning.py" beforeDir="false" afterPath="$PROJECT_DIR$/Monotonic WOE Binning.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monotonic WOE Binning.py" beforeDir="false" afterPath="$PROJECT_DIR$/monotonic_woe_binning.py" afterDir="false" />
+    </list>
+    <list id="ad82dc57-9891-4c53-b209-7b397e0e27cc" name="Revert &quot;Removed parenthesis&quot;" comment="Revert &quot;Removed parenthesis&quot;&#10;&#10;This reverts commit d6e53d87">
+      <change beforePath="$PROJECT_DIR$/Monotonic WOE Binning.py" beforeDir="false" afterPath="$PROJECT_DIR$/monotonic_woe_binning.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,13 +17,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Monotonic WOE Binning.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2576">
-              <caret line="196" selection-start-line="189" selection-end-line="196" />
+            <state relative-caret-position="132">
+              <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
               <folding>
-                <element signature="e#2#11#0" expanded="true" />
+                <element signature="e#0#41#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -28,8 +32,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="178" column="21" selection-start-line="178" selection-start-column="21" selection-end-line="178" selection-end-column="21" />
+            <state relative-caret-position="-308">
+              <caret line="137" selection-start-line="137" selection-end-line="137" />
+              <folding>
+                <element signature="e#1#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/monotonic_woe_binning.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2374">
+              <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
               <folding>
                 <element signature="e#1#10#0" expanded="true" />
               </folding>
@@ -110,8 +126,38 @@
       <list>
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
         <option value="$PROJECT_DIR$/Monotonic WOE Binning.py" />
+        <option value="$PROJECT_DIR$/main" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/monotonic_woe_binning.py" />
       </list>
     </option>
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/monotonic_woe_binning.py">
+      <ranges>
+        <range start1="0" end1="0" start2="0" end2="1" changelist="ad82dc57-9891-4c53-b209-7b397e0e27cc" />
+        <range start1="5" end1="5" start2="6" end2="8" changelist="b98a1d66-19ea-4077-baaf-79c9e4309371" />
+        <range start1="12" end1="13" start2="15" end2="15" changelist="b98a1d66-19ea-4077-baaf-79c9e4309371" />
+        <range start1="14" end1="15" start2="16" end2="19" changelist="b98a1d66-19ea-4077-baaf-79c9e4309371" />
+        <range start1="19" end1="21" start2="23" end2="23" changelist="b98a1d66-19ea-4077-baaf-79c9e4309371" />
+        <range start1="26" end1="26" start2="28" end2="30" changelist="b98a1d66-19ea-4077-baaf-79c9e4309371" />
+        <range start1="27" end1="27" start2="31" end2="32" changelist="b98a1d66-19ea-4077-baaf-79c9e4309371" />
+        <range start1="28" end1="29" start2="33" end2="33" changelist="b98a1d66-19ea-4077-baaf-79c9e4309371" />
+        <range start1="30" end1="30" start2="34" end2="35" changelist="b98a1d66-19ea-4077-baaf-79c9e4309371" />
+        <range start1="33" end1="34" start2="38" end2="41" changelist="b98a1d66-19ea-4077-baaf-79c9e4309371" />
+        <range start1="45" end1="46" start2="52" end2="53" changelist="ad82dc57-9891-4c53-b209-7b397e0e27cc" />
+        <range start1="71" end1="73" start2="78" end2="80" changelist="ad82dc57-9891-4c53-b209-7b397e0e27cc" />
+        <range start1="93" end1="94" start2="100" end2="101" changelist="ad82dc57-9891-4c53-b209-7b397e0e27cc" />
+        <range start1="164" end1="165" start2="171" end2="172" changelist="b98a1d66-19ea-4077-baaf-79c9e4309371" />
+        <range start1="167" end1="168" start2="174" end2="175" changelist="b98a1d66-19ea-4077-baaf-79c9e4309371" />
+        <range start1="180" end1="182" start2="187" end2="188" changelist="b98a1d66-19ea-4077-baaf-79c9e4309371" />
+        <range start1="184" end1="185" start2="190" end2="191" changelist="ad82dc57-9891-4c53-b209-7b397e0e27cc" />
+        <range start1="186" end1="187" start2="192" end2="196" changelist="b98a1d66-19ea-4077-baaf-79c9e4309371" />
+        <range start1="188" end1="190" start2="197" end2="199" changelist="ad82dc57-9891-4c53-b209-7b397e0e27cc" />
+        <range start1="193" end1="201" start2="202" end2="205" changelist="b98a1d66-19ea-4077-baaf-79c9e4309371" />
+        <range start1="202" end1="230" start2="206" end2="206" changelist="ad82dc57-9891-4c53-b209-7b397e0e27cc" />
+      </ranges>
+    </file>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="57" />
@@ -130,15 +176,6 @@
             <path>
               <item name="Monotonic-WOE-Binning-Algorithm" type="b2602c69:ProjectViewProjectNode" />
               <item name="Monotonic-WOE-Binning-Algorithm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Monotonic-WOE-Binning-Algorithm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
-            </path>
-            <path>
-              <item name="Monotonic-WOE-Binning-Algorithm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
-              <item name="Scratches" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
             </path>
           </expand>
           <select />
@@ -166,7 +203,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Monotonic WOE Binning" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+    <configuration name="monotonic_woe_binning" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Monotonic-WOE-Binning-Algorithm" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -178,7 +215,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Monotonic WOE Binning.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\jstep\PycharmProjects\Monotonic-WOE-Binning-Algorithm\monotonic_woe_binning.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -206,14 +243,20 @@
       <option name="project" value="LOCAL" />
       <updated>1586467042027</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Renamed Functions">
+      <created>1586568402854</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1586568402854</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25655282" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25655282" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -226,11 +269,21 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32838285" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.4290429" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="10" visible="true" weight="0.29867986" />
+      <window_info anchor="bottom" id="Python Console" order="10" visible="true" weight="0.47524753" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -260,7 +313,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Removed parenthesis" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed parenthesis" />
+    <MESSAGE value="Renamed Functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Renamed Functions" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/README.md">
@@ -275,20 +329,30 @@
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="178" column="21" selection-start-line="178" selection-start-column="21" selection-end-line="178" selection-end-column="21" />
+        <state relative-caret-position="-308">
+          <caret line="137" selection-start-line="137" selection-end-line="137" />
           <folding>
             <element signature="e#1#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Monotonic WOE Binning.py">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2576">
-          <caret line="196" selection-start-line="189" selection-end-line="196" />
+        <state relative-caret-position="132">
+          <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
           <folding>
-            <element signature="e#2#11#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/monotonic_woe_binning.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2374">
+          <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding>
+            <element signature="e#1#10#0" expanded="true" />
           </folding>
         </state>
       </provider>

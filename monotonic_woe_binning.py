@@ -3,6 +3,8 @@ import pandas as pd
 import scipy.stats as stats
 import warnings
 import numpy as np
+from sklearn.base import BaseEstimator, TransformerMixin
+
 
 desired_width = 320
 pd.set_option('display.width', desired_width)
@@ -10,28 +12,32 @@ pd.set_option('display.max_columns', 130)
 warnings.filterwarnings("ignore")
 os.getcwd()
 
-class Binning:
 
-    def __init__(self, y, dataset, n_threshold, y_threshold, p_threshold,sign=False):
+class Binning(BaseEstimator, TransformerMixin):
+
+    def __init__(self, y, n_threshold, y_threshold, p_threshold, sign=False):
         self.n_threshold = n_threshold
         self.y_threshold = y_threshold
         self.p_threshold = p_threshold
         self.y = y
-        self.dataset = dataset
-        self.column = self.dataset.columns[self.dataset.columns != self.y][0]
         self.sign = sign
 
         self.init_summary = pd.DataFrame()
         self.bin_summary = pd.DataFrame()
         self.pvalue_summary = pd.DataFrame()
+        self.dataset = pd.DataFrame()
+        self.woe_summary = pd.DataFrame()
 
+        self.column = object
         self.total_iv = object
-        self.woe_summary = object
         self.bins = object
+        self.bucket = object
 
     def generate_summary(self):
 
-        self.init_summary = self.dataset.groupby([self.column]).agg({self.y: {"means": "mean", "nsamples": "size","std_dev": "std"}})
+        self.init_summary = self.dataset.groupby([self.column]).agg({self.y: {"means": "mean",
+                                                                              "nsamples": "size",
+                                                                              "std_dev": "std"}})
 
         self.init_summary.columns = self.init_summary.columns.droplevel(level=0)
 
@@ -162,10 +168,10 @@ class Binning:
     def generate_final_dataset(self):
         if self.sign == False:
             shift_var = 1
-            bucket = True
+            self.bucket = True
         else:
             shift_var = -1
-            bucket = False
+            self.bucket = False
 
         self.woe_summary[self.column + "_shift"] = self.woe_summary[self.column].shift(shift_var)
 
@@ -178,27 +184,24 @@ class Binning:
 
         self.woe_summary["labels"] = self.woe_summary.apply(self.generate_bin_labels, axis=1)
 
-        self.dataset["bins"] = pd.cut(self.dataset[self.column], self.bins, right=bucket, precision=0)
-        #self.dataset["bins"] = pd.cut(self.dataset[self.column], self.bins, labels=self.woe_summary["labels"], right=bucket, precision=0)
+        self.dataset["bins"] = pd.cut(self.dataset[self.column], self.bins, right=self.bucket, precision=0)
 
         self.dataset["bins"] = self.dataset["bins"].astype(str)
         # self.dataset['bins'] = self.dataset['bins'].map(lambda x: x.lstrip('[').rstrip(')'))
 
-    def __call__(self):
+    def fit(self, dataset):
+        self.dataset = dataset
+        self.column = self.dataset.columns[self.dataset.columns != self.y][0]
+
         self.generate_summary()
         self.combine_bins_by_size()
         self.combine_bins_by_pvals()
         self.calculate_woe()
         self.generate_final_dataset()
 
-        return self.dataset
-
-#duration_WOE = WOE_Binning("goodbad", credit[["goodbad", "duration"]], sign=False)
-#def WOE_Binning(Y, dataset, sign=False, n_threshold=100, Y_threshold=30, p_threshold=0.05):
-
-os.chdir('C:\\Users\\jstep\\Downloads\\Credit Risk Analytics Pack\\Probablity of Default\\Supplements')
-credit = pd.read_excel("PD.xls")
-
+    def transform(self, test_data):
+        test_data[self.column+"_bins"] = pd.cut(test_data[self.column], self.bins, right=self.bucket, precision=0)
+        return test_data
 
 
 bin_object = Binning("goodbad", credit[["goodbad", "age"]],n_threshold = 100,y_threshold = 30,p_threshold = 0.05, sign = True)
