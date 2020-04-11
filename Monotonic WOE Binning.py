@@ -1,4 +1,3 @@
-
 import os
 import pandas as pd
 import scipy.stats as stats
@@ -44,7 +43,7 @@ class Binning:
 
         self.init_summary = self.init_summary.sort_values([self.column], ascending=self.sign)
 
-    def combine_bins(self):
+    def combine_bins_by_size(self):
         summary = self.init_summary.copy()
 
         while True:
@@ -92,7 +91,7 @@ class Binning:
 
         self.bin_summary = summary.copy()
 
-    def calculate_pvalues(self):
+    def combine_bins_by_pvals(self):
         summary = self.bin_summary.copy()
         while True:
             summary["means_lead"] = summary["means"].shift(-1)
@@ -135,7 +134,7 @@ class Binning:
             summary["std_dev"] = summary.apply(
                 lambda row: np.sqrt(row["est_std_dev2"]) if row["p_value"] == max_p else row["std_dev"], axis=1)
 
-        self.pvalue_summary = self.bin_summary.copy()
+        self.pvalue_summary = summary.copy()
 
     def calculate_woe(self):
         woe_summary = self.pvalue_summary[[self.column, "nsamples", "means"]]
@@ -183,12 +182,12 @@ class Binning:
         #self.dataset["bins"] = pd.cut(self.dataset[self.column], self.bins, labels=self.woe_summary["labels"], right=bucket, precision=0)
 
         self.dataset["bins"] = self.dataset["bins"].astype(str)
-        self.dataset['bins'] = self.dataset['bins'].map(lambda x: x.lstrip('[').rstrip(')'))
+        # self.dataset['bins'] = self.dataset['bins'].map(lambda x: x.lstrip('[').rstrip(')'))
 
     def __call__(self):
         self.generate_summary()
-        self.combine_bins()
-        self.calculate_pvalues()
+        self.combine_bins_by_size()
+        self.combine_bins_by_pvals()
         self.calculate_woe()
         self.generate_final_dataset()
 
@@ -200,5 +199,32 @@ class Binning:
 os.chdir('C:\\Users\\jstep\\Downloads\\Credit Risk Analytics Pack\\Probablity of Default\\Supplements')
 credit = pd.read_excel("PD.xls")
 
-bin_object = Binning("goodbad", credit[["goodbad", "duration"]],n_threshold = 100,y_threshold = 30,p_threshold = 0.05)
+
+
+bin_object = Binning("goodbad", credit[["goodbad", "age"]],n_threshold = 100,y_threshold = 30,p_threshold = 0.05, sign = True)
+# bin_object.generate_summary()
+# bin_object.combine_bins()
+# bin_object.calculate_pvalues()
+#
+# bin_object.pvalue_summary
+
 final_data = bin_object()
+final_data.groupby(["bins"]).size()
+
+# bins
+# (-inf, 52.0]    904
+# (52.0, 75.0]     96
+# dtype: int64
+
+# bins
+# (-inf, 5.0]       7
+# (11.0, 15.0]    251
+# (15.0, 26.0]    340
+# (26.0, 33.0]     59
+# (33.0, 42.0]    100
+# (42.0, 60.0]     69
+# (5.0, 7.0]       80
+# (60.0, 72.0]      1
+# (7.0, 8.0]        7
+# (8.0, 11.0]      86
+# dtype: int64
