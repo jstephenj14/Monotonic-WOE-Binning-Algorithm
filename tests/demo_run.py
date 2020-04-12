@@ -14,4 +14,7 @@ bin_object.fit(train[["Creditability", var]])
 # Print WOE summary
 print(bin_object.woe_summary)
 
+# The bin cut-points in an array
+print(bin_object.bins)
+
 test_transformed = bin_object.transform(test)

@@ -2,18 +2,17 @@
 
 _This algorithm is based on the excellent paper by Mironchyk and Tchistiakov (2017) named "Monotone	optimal	binning	algorithm	for	credit risk	modeling". Any mistakes or shortcomings of the Python code are mine alone and I'd appreciate feedback on these possible errors_
 
-#### How to use
+### How to use
 
 1. pip install monotonic_binning: `pip install -i https://test.pypi.org/simple/simple/ monotonic-binning`  
 2. Import monotonic_woe_binning: `from monotonic_binning import monotonic_woe_binning as bin`
 3. Use `fit` and `transform` to bin variables for train and test datasets respectively
 
-#### Demo Run Details
+### Demo Run Details
 
-The `demo_run.py` file available under `tests/` uses German credit card data from [Penn State's online course](https://online.stat.psu.edu/stat508/resource/analysis/gcd).
+The `demo_run.py` file available under `tests/` uses German credit card data from [Penn State's online course](https://online.stat.psu.edu/stat508/resource/analysis/gcd) and gives an overview of how to use the package.
 
-
-#### Summary of Monotonic WOE 
+### Summary of Monotonic WOE 
 
 The weight-of-evidence (WOE) method of evaluating strength of predictors is an understated one in the field of analytics.
 While it is standard fare in credit risk modelling, it is under-utilized in other settings though its formulation makes it
