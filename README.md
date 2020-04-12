@@ -41,9 +41,4 @@ Arriving at the perfect bin cutoffs to meet all three requirements discussed ear
 provide this type of optimal discretization of interval variables. R's [smbinning package](https://cran.r-project.org/web/packages/smbinning/smbinning.pdf)
 and SAS' [proc transreg](https://statcompute.wordpress.com/2017/09/24/granular-monotonic-binning-in-sas/) are two such examples. To my knowledge, Python's solutions to this problem are fairly sparse. 
 
-My solution here takes two columns of data: a 1/0 variable and the variable to be binned. It returns a binned variable along with respective WOE values conditioned on user-defined thresholds on minimum possible bin size, minimum
-number of defaults in each bin and the maximum p-value allowed for a possible t-test in means between adjacent bins.
-
-I hope my attempt here serves as a helpful stop-gap for someone looking to perform risk modelling in Python using WOE methods.
-
-
+This package is an attempt to complement already exhaustive packages like [scorecardpy](https://github.com/ShichenXie/scorecardpy) with the capability to bin variables with monotonic WOE.
