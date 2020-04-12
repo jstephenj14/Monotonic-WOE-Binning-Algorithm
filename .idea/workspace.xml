@@ -15,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/demo_run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+            <state relative-caret-position="14">
+              <caret line="4" column="77" selection-start-line="4" selection-start-column="77" selection-end-line="4" selection-end-column="77" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -27,32 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LICENSE">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="9" column="56" lean-forward="true" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="588">
-                <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/monotonic_binning/monotonic_woe_binning.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-148">
-              <caret line="172" column="30" selection-start-line="172" selection-start-column="30" selection-end-line="172" selection-end-column="30" />
+            <state relative-caret-position="-2542">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
               <folding>
                 <element signature="e#1#10#0" expanded="true" />
               </folding>
@@ -153,8 +132,8 @@
         <option value="$PROJECT_DIR$/monotonic_binning/monotonic_woe_binning.py" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/package building" />
         <option value="$PROJECT_DIR$/monotonic_binning/__init__.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/tests/demo_run.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -175,16 +154,6 @@
             <path>
               <item name="Monotonic-WOE-Binning-Algorithm" type="b2602c69:ProjectViewProjectNode" />
               <item name="Monotonic-WOE-Binning-Algorithm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Monotonic-WOE-Binning-Algorithm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Monotonic-WOE-Binning-Algorithm" type="462c0819:PsiDirectoryNode" />
-              <item name="monotonic_binning" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Monotonic-WOE-Binning-Algorithm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Monotonic-WOE-Binning-Algorithm" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Monotonic-WOE-Binning-Algorithm" type="b2602c69:ProjectViewProjectNode" />
@@ -310,12 +279,32 @@
       <option name="project" value="LOCAL" />
       <updated>1586703026056</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added comments to demo_run.py">
+      <created>1586703516054</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1586703516054</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Changed doc">
+      <created>1586703686623</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1586703686623</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Changed doc">
+      <created>1586703838059</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1586703838059</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25655282" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -394,7 +383,9 @@
     <MESSAGE value="Built package" />
     <MESSAGE value="Made package pip installable and added documentation/demo run" />
     <MESSAGE value="Added bin cut-points in demo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added bin cut-points in demo" />
+    <MESSAGE value="Added comments to demo_run.py" />
+    <MESSAGE value="Changed doc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed doc" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/setup.py">
@@ -421,13 +412,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LICENSE">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="9" column="56" lean-forward="true" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/package building">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14">
@@ -435,32 +419,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/monotonic_binning/monotonic_woe_binning.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-148">
-          <caret line="172" column="30" selection-start-line="172" selection-start-column="30" selection-end-line="172" selection-end-column="30" />
-          <folding>
-            <element signature="e#1#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="588">
-            <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+          <first_editor relative-caret-position="28">
+            <caret line="2" column="152" selection-start-line="2" selection-start-column="152" selection-end-line="2" selection-end-column="152" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="9" column="56" lean-forward="true" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tests/demo_run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+        <state relative-caret-position="14">
+          <caret line="4" column="77" selection-start-line="4" selection-start-column="77" selection-end-line="4" selection-end-column="77" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/monotonic_binning/monotonic_woe_binning.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2542">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#1#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
