@@ -1,6 +1,6 @@
 # Monotonic-WOE-Binning-Algorithm
 
-_This algorithm is based on the excellent paper by Mironchyk and Tchistiakov (2017) named "Monotone	optimal	binning	algorithm	for	credit risk	modeling". Any mistakes or shortcomings of the Python code are mine alone and I'd appreciate feedback on these possible errors_
+_This algorithm is based on the excellent paper by Mironchyk and Tchistiakov (2017) named "Monotone	optimal	binning	algorithm for credit risk modeling"._
 
 ### How to use
 
