@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b98a1d66-19ea-4077-baaf-79c9e4309371" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/demo_run.py" afterDir="false" />
     </list>
     <list id="ad82dc57-9891-4c53-b209-7b397e0e27cc" name="Revert &quot;Removed parenthesis&quot;" comment="Revert &quot;Removed parenthesis&quot;&#10;&#10;This reverts commit d6e53d87">
       <change beforePath="$PROJECT_DIR$/monotonic_binning/monotonic_woe_binning.py" beforeDir="false" afterPath="$PROJECT_DIR$/monotonic_binning/monotonic_woe_binning.py" afterDir="false" />
@@ -17,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/demo_run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="224">
+              <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -38,12 +36,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="168">
-                <caret line="12" column="56" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
+              <first_editor relative-caret-position="588">
+                <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
               </first_editor>
               <second_editor />
             </state>
@@ -58,15 +56,6 @@
               <folding>
                 <element signature="e#1#10#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/package building">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14">
-              <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="76" />
             </state>
           </provider>
         </entry>
@@ -164,8 +153,8 @@
         <option value="$PROJECT_DIR$/monotonic_binning/monotonic_woe_binning.py" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/package building" />
         <option value="$PROJECT_DIR$/monotonic_binning/__init__.py" />
-        <option value="$PROJECT_DIR$/tests/demo_run.py" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/tests/demo_run.py" />
       </list>
     </option>
   </component>
@@ -196,6 +185,15 @@
               <item name="Monotonic-WOE-Binning-Algorithm" type="b2602c69:ProjectViewProjectNode" />
               <item name="Monotonic-WOE-Binning-Algorithm" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Monotonic-WOE-Binning-Algorithm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+            </path>
+            <path>
+              <item name="Monotonic-WOE-Binning-Algorithm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+              <item name="Scratches" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
             </path>
           </expand>
           <select />
@@ -298,7 +296,21 @@
       <option name="project" value="LOCAL" />
       <updated>1586629118664</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Made package pip installable and added documentation/demo run">
+      <created>1586702839849</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1586702839849</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added bin cut-points in demo">
+      <created>1586703026056</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1586703026056</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -380,7 +392,9 @@
     <MESSAGE value="Converted code to fit/transform paradigm" />
     <MESSAGE value="Added main.py sample script" />
     <MESSAGE value="Built package" />
-    <option name="LAST_COMMIT_MESSAGE" value="Built package" />
+    <MESSAGE value="Made package pip installable and added documentation/demo run" />
+    <MESSAGE value="Added bin cut-points in demo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added bin cut-points in demo" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/setup.py">
@@ -407,6 +421,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="9" column="56" lean-forward="true" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/package building">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14">
@@ -424,30 +445,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LICENSE">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="9" column="56" lean-forward="true" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="588">
+            <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/demo_run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="224">
+          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="168">
-            <caret line="12" column="56" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
