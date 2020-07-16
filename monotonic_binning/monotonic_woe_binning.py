@@ -34,9 +34,7 @@ class Binning(BaseEstimator, TransformerMixin):
 
     def generate_summary(self):
 
-        self.init_summary = self.dataset.groupby([self.column]).agg({self.y: {"means": "mean",
-                                                                              "nsamples": "size",
-                                                                              "std_dev": "std"}})
+        self.init_summary = self.dataset.groupby([self.column]).agg({self.y: ["mean", "std", "size"]}).rename({"mean": "means", "size": "nsamples", "std": "std_dev"}, axis=1)
 
         self.init_summary.columns = self.init_summary.columns.droplevel(level=0)
 
