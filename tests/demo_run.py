@@ -1,5 +1,4 @@
 from monotonic_binning.monotonic_woe_binning import Binning
-import os
 import pandas as pd
 
 # Data available at https://online.stat.psu.edu/stat508/resource/analysis/gcd

@@ -4,7 +4,7 @@ _This algorithm is based on the excellent paper by Mironchyk and Tchistiakov (20
 
 ### How to use
 
-1. pip install monotonic_binning: `pip install -i https://test.pypi.org/simple/simple/ monotonic-binning`  
+1. pip install monotonic_binning: `pip install monotonic-binning` (note that earlier versions were hosted on `test.pypi.org` but the latest version is on `pypi.org`) 
 2. Import monotonic_woe_binning: `from monotonic_binning import monotonic_woe_binning as bin`
 3. Use `fit` and `transform` to bin variables for train and test datasets respectively
 
