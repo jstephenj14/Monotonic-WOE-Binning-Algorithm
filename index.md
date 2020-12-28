@@ -1,37 +1,44 @@
-## Welcome to GitHub Pages
+# Monotonic-WOE-Binning-Algorithm
 
-You can use the [editor on GitHub](https://github.com/jstephenj14/Monotonic-WOE-Binning-Algorithm/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+_This algorithm is based on the excellent paper by Mironchyk and Tchistiakov (2017) named "Monotone	optimal	binning	algorithm for credit risk modeling"._
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### How to use
 
-### Markdown
+1. pip install monotonic_binning: `pip install monotonic-binning` (note that earlier versions were hosted on `test.pypi.org` but the latest version is on `pypi.org`) 
+2. Import monotonic_woe_binning: `from monotonic_binning import monotonic_woe_binning as bin`
+3. Use `fit` and `transform` to bin variables for train and test datasets respectively
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Demo Run Details
 
-```markdown
-Syntax highlighted code block
+The `demo_run.py` file available under `tests/` uses German credit card data from [Penn State's online course](https://online.stat.psu.edu/stat508/resource/analysis/gcd) and gives an overview of how to use the package.
 
-# Header 1
-## Header 2
-### Header 3
+### Summary of Monotonic WOE 
 
-- Bulleted
-- List
+The weight-of-evidence (WOE) method of evaluating strength of predictors is an understated one in the field of analytics.
+While it is standard fare in credit risk modelling, it is under-utilized in other settings though its formulation makes it
+generic enough for use in other domains too. The WOE method primarily aims to bin variables into buckets that deliver the most
+information to a potential classification model. Quite often, WOE binning methods measure effectiveness of such bins using Information Value
+or IV. For a more detailed introduction to WOE and IV, [this article](http://ucanalytics.com/blogs/information-value-and-weight-of-evidencebanking-case/)
+is a useful read. 
 
-1. Numbered
-2. List
+In the world of credit risk modelling, regulatory oversight often requires that the variables that go into models
+are split into bins 
 
-**Bold** and _Italic_ and `Code` text
+- whose weight of evidence (WOE) values maintain a monotonic relationship with the 1/0 variable (loan default or not default for example.)
+- are reasonably sized and large enough to be respresentative of population segments, and
+- maximize the IV value of the given variable in the process of this binning. 
 
-[Link](url) and ![Image](src)
-```
+To exemplify the constraints such a problem, consider a simple dataset containing age and a default indicator (1 if defaulted, 0 if not).
+The following is a possible scenario in which the variable is binned into three groups in such a manner that their WOE values decrease monotomically
+as the ages of customers increase. 
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+<a href="https://drive.google.com/uc?export=view&id=10NHDsJQbZRgO3QQGK2dMkoAmzJxtQR_A"><img src="https://drive.google.com/uc?export=view&id=10NHDsJQbZRgO3QQGK2dMkoAmzJxtQR_A" style="width: 500px; max-width: 100%; height: auto" title="WOE Table" /></a>
 
-### Jekyll Themes
+The WOE is derived in such a manner that as the WOE value increases, the default rate decreases. So we can infer 
+that younger customers are more likely to default in comparison to older customers.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/jstephenj14/Monotonic-WOE-Binning-Algorithm/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Arriving at the perfect bin cutoffs to meet all three requirements discussed earlier is a non-trivial exercise. Most statistical software
+provide this type of optimal discretization of interval variables. R's [smbinning package](https://cran.r-project.org/web/packages/smbinning/smbinning.pdf)
+and SAS' [proc transreg](https://statcompute.wordpress.com/2017/09/24/granular-monotonic-binning-in-sas/) are two such examples. To my knowledge, Python's solutions to this problem are fairly sparse. 
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+This package is an attempt to complement already exhaustive packages like [scorecardpy](https://github.com/ShichenXie/scorecardpy) with the capability to bin variables with monotonic WOE.
