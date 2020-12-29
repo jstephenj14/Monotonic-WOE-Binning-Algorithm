@@ -1,6 +1,6 @@
 # Monotonic-WOE-Binning-Algorithm
 
-_This algorithm is based on the excellent paper by Mironchyk and Tchistiakov (2017) named "Monotone	optimal	binning	algorithm for credit risk modeling"._
+Developed and documented by **John Stephen Joseph Arul Selvam**
 
 ### How to use
 
@@ -42,3 +42,7 @@ provide this type of optimal discretization of interval variables. R's [smbinnin
 and SAS' [proc transreg](https://statcompute.wordpress.com/2017/09/24/granular-monotonic-binning-in-sas/) are two such examples. To my knowledge, Python's solutions to this problem are fairly sparse. 
 
 This package is an attempt to complement already exhaustive packages like [scorecardpy](https://github.com/ShichenXie/scorecardpy) with the capability to bin variables with monotonic WOE.
+
+### References
+
+_This algorithm is based on the excellent paper by Mironchyk and Tchistiakov (2017) named "Monotone	optimal	binning	algorithm for credit risk modeling"._
