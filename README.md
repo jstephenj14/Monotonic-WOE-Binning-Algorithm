@@ -26,7 +26,7 @@ are split into bins
 
 - whose weight of evidence (WOE) values maintain a monotonic relationship with the 1/0 variable (loan default or not default for example.)
 - are reasonably sized and large enough to be respresentative of population segments, and
-- maximize the IV value of the given variable in the process of this binning. 
+- optimize the IV value of the given variable in the process of this monotonic binning. 
 
 To exemplify the constraints such a problem, consider a simple dataset containing age and a default indicator (1 if defaulted, 0 if not).
 The following is a possible scenario in which the variable is binned into three groups in such a manner that their WOE values decrease monotomically
