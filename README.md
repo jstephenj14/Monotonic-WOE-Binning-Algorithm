@@ -29,7 +29,7 @@ are split into bins
 - optimize the IV value of the given variable in the process of this monotonic binning. 
 
 To exemplify the constraints such a problem, consider a simple dataset containing age and a default indicator (1 if defaulted, 0 if not).
-The following is a possible scenario in which the variable is binned into three groups in such a manner that their WOE values decrease monotomically
+The following is a possible scenario in which the variable is binned into three groups in such a manner that their WOE values increase monotonically
 as the ages of customers increase. 
 
 <a href="https://drive.google.com/uc?export=view&id=10NHDsJQbZRgO3QQGK2dMkoAmzJxtQR_A"><img src="https://drive.google.com/uc?export=view&id=10NHDsJQbZRgO3QQGK2dMkoAmzJxtQR_A" style="width: 500px; max-width: 100%; height: auto" title="WOE Table" /></a>
