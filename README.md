@@ -1,6 +1,6 @@
 # Monotonic-WOE-Binning-Algorithm
 
-Developed and documented by **John Stephen Joseph Arul Selvam**
+Developed and documented by **John Selvam**
 
 ### How to use
 
